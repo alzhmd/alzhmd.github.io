@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>alzhmd — داستان از اینجا شروع شد</title>
+<meta name="description" content="The story starts here — a slow-motion film made entirely in code, and the projects of alzhmd: Telegram bots, payment tooling and Persian-first web apps.">
+<meta name="theme-color" content="#06070a">
+<meta property="og:type" content="video.other">
+<meta property="og:title" content="داستان از اینجا شروع شد · The story starts here">
+<meta property="og:description" content="A slow-motion film made entirely in code — and the projects of alzhmd.">
+<meta property="og:image" content="https://alzhmd.github.io/og.jpg">
+<meta property="og:video" content="https://alzhmd.github.io/film.mp4">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100'%3E%3Cpath fill='%23f2a51a' d='M0-46 13-31 32-32 31-13 46 0 31 13 32 32 13 31 0 46-13 31-32 32-31 13-46 0-31-13-32-32-13-31Z'/%3E%3C/svg%3E">
+<link rel="preload" href="film.mp4" as="video" type="video/mp4">
+<style>
+@font-face{font-family:Vazirmatn;src:url(fonts/Vazirmatn-Light.woff2) format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:Vazirmatn;src:url(fonts/Vazirmatn-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Vazirmatn;src:url(fonts/Vazirmatn-Medium.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:Inter;src:url(fonts/Inter-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Inter;src:url(fonts/Inter-Medium.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Inter Display";src:url(fonts/InterDisplay-SemiBold.woff2) format("woff2");font-weight:600;font-display:swap}
+:root{
+  --bg:#06070a; --panel:#0d0f14; --line:rgba(255,255,255,.08); --text:#ebe7df; --muted:#9a968e;
+  --saffron:#f2a51a; --turquoise:#2bb7c2; --lapis:#3a5be0; --crimson:#d8243c;
+}
+*{box-sizing:border-box}
+html{background:var(--bg);color:var(--text);-webkit-text-size-adjust:100%}
+body{margin:0;font:400 17px/1.85 Vazirmatn,Inter,system-ui,sans-serif;background:var(--bg)}
+a{color:inherit}
+.en{font-family:Inter,system-ui,sans-serif;direction:ltr;unicode-bidi:isolate}
+.film{position:relative;width:100%;background:#000;aspect-ratio:1920/804;max-height:100svh;overflow:hidden}
+.film video{display:block;width:100%;height:100%;object-fit:contain;background:#000}
+.sound{position:absolute;inset-inline:0;bottom:clamp(14px,4vw,40px);margin:auto;width:max-content;display:flex;gap:.6em;align-items:center;
+  padding:.55em 1.2em .55em 1.05em;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(6,7,10,.45);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#fff;font:500 15px/1 Vazirmatn,Inter,sans-serif;cursor:pointer;
+  transition:background .25s,border-color .25s,opacity .4s}
+.sound:hover{background:rgba(6,7,10,.7);border-color:rgba(255,255,255,.55)}
+.sound svg{width:14px;height:14px}
+.sound.hide{opacity:0;pointer-events:none}
+main{max-width:1080px;margin:0 auto;padding:clamp(40px,7vw,84px) 16px 40px}
+.intro{text-align:center}
+.intro h1{font-weight:300;font-size:clamp(30px,5.2vw,54px);line-height:1.35;margin:0}
+.intro .sub{letter-spacing:.32em;text-transform:uppercase;font-size:12.5px;color:var(--muted);margin:.6em 0 0}
+.star{display:block;margin:34px auto;width:22px;height:22px;opacity:.9}
+.lead{max-width:640px;margin:0 auto;color:#cfcac1}
+.lead .en{display:block;margin-top:.7em;color:var(--muted);font-size:15px;line-height:1.7}
+h2{font-weight:500;font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);text-align:center;margin:72px 0 26px}
+h2 span{font-family:Vazirmatn;letter-spacing:0;text-transform:none;font-size:15px;margin-inline-start:.6em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px}
+.card{position:relative;display:block;text-decoration:none;padding:20px 20px 18px;border:1px solid var(--line);border-radius:14px;
+  background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,0));transition:border-color .25s,transform .25s}
+a.card:hover{border-color:rgba(255,255,255,.22);transform:translateY(-2px)}
+.card::before{content:"";position:absolute;inset-inline-start:20px;top:0;width:34px;height:2px;border-radius:2px;background:var(--c,var(--saffron))}
+.card h3{margin:0;font:600 19px/1.3 "Inter Display",Inter,sans-serif;direction:ltr;text-align:right}
+.card .fa{margin:.15em 0 .5em;color:#d9d4cb;font-size:15px}
+.card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.75}
+.card .meta{display:flex;justify-content:space-between;gap:10px;margin-top:14px;font:400 12.5px/1.4 Inter,sans-serif;color:#7d7a73;direction:ltr}
+.tag{border:1px solid var(--line);border-radius:999px;padding:.2em .7em;white-space:nowrap}
+.making{max-width:720px;margin:0 auto;color:#bdb8af;font-size:15.5px}
+.making ul{padding:0;margin:0;list-style:none;display:grid;gap:10px}
+.making li{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.making b{color:var(--text);font-weight:500}
+.making .en{display:block;color:var(--muted);font-size:13.5px;line-height:1.6;margin-top:.3em}
+footer{text-align:center;padding:56px 16px 64px;color:#77736c;font:400 13px/1.8 Inter,sans-serif}
+footer a{color:#cfcac1;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2)}
+@media (prefers-reduced-motion:reduce){.card,.sound{transition:none}}
+</style>
+</head>
+<body>
+<header class="film">
+  <video id="film" src="film.mp4" poster="poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="The story starts here — slow-motion film"></video>
+  <button class="sound" id="sound" type="button">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+    <span>پخش با صدا</span><span aria-hidden="true" style="opacity:.5">·</span><span class="en" style="opacity:.75">Play with sound</span>
+  </button>
+</header>
+
+<main>
+  <section class="intro">
+    <h1>داستان از اینجا شروع شد</h1>
+    <p class="sub en">The story starts here</p>
+    <svg class="star" viewBox="-50 -50 100 100" aria-hidden="true"><path fill="#f2a51a" d="M0-46 13-31 32-32 31-13 46 0 31 13 32 32 13 31 0 46-13 31-32 32-31 13-46 0-31-13-32-32-13-31Z"/></svg>
+    <p class="lead">ربات‌های تلگرام، ابزارهای پرداخت و وب‌اپ‌های فارسی می‌سازم؛ با پایتون، تایپ‌اسکریپت و Rust، و با راست‌به‌چپ و چندزبانگی درست.
+      <span class="en">I build Telegram bots, payment tooling and Persian-first web apps — Python, TypeScript and Rust, with RTL and i18n done properly.</span></p>
+  </section>
+
+  <h2 class="en">Projects <span>پروژه‌ها</span></h2>
+  <div class="grid">
+    <div class="card" style="--c:var(--turquoise)"><h3>PersianVPN</h3><div class="fa">پرشین وی‌پی‌ان</div>
+      <p>ربات فروش اشتراک با مینی‌اپ تلگرام و مدیریت خودکار ناوگان سرورها.</p><div class="meta"><span>Python · aiogram · PostgreSQL</span><span class="tag">private</span></div></div>
+    <div class="card" style="--c:var(--saffron)"><h3>Persian Movies</h3><div class="fa">پرشین موویز</div>
+      <p>ربات درخواست فیلم با آرشیو هوشمند کانال‌ها، دستیار هوش مصنوعی و پنل مدیریت.</p><div class="meta"><span>Python · Telegram</span><span class="tag">private</span></div></div>
+    <div class="card" style="--c:var(--crimson)"><h3>MediaForge</h3><div class="fa">دانلودر تلگرام</div>
+      <p>ربات دانلود رسانه در تلگرام.</p><div class="meta"><span>Rust · teloxide · yt-dlp</span><span class="tag">private</span></div></div>
+    <a class="card" style="--c:var(--lapis)" href="https://github.com/alzhmd/bolgram"><h3>Bolgram</h3><div class="fa">درگاه پرداخت بلگرام</div>
+      <p>درگاه پرداخت کارت‌به‌کارت با تأیید خودکار از روی پیامک بانک.</p><div class="meta"><span>TypeScript · Docker</span><span class="tag">open source ↗</span></div></a>
+    <a class="card" style="--c:var(--turquoise)" href="https://github.com/alzhmd/tg-channel-mover"><h3>Channel Mover</h3><div class="fa">انتقال کانال تلگرام</div>
+      <p>کپی کامل یک کانال تلگرام به کانال دیگر، بدون «Forwarded from»، با حفظ آلبوم‌ها، کپشن‌ها و دکمه‌ها.</p><div class="meta"><span>Python · Telethon</span><span class="tag">open source ↗</span></div></a>
+    <a class="card" style="--c:var(--saffron)" href="https://github.com/alzhmd/zagros-shop"><h3>Zagros Shop</h3><div class="fa">فروشگاه زاگرس</div>
+      <p>فروشگاه آنلاین فارسی خودمیزبان؛ رندر سمت سرور، HTMX و راست‌به‌چپ.</p><div class="meta"><span>Rust · Axum · PostgreSQL</span><span class="tag">open source ↗</span></div></a>
+    <div class="card" style="--c:var(--crimson)"><h3>PersianPanel</h3><div class="fa">پرشین پنل</div>
+      <p>ربات نمایندگی فروش با کیف پول، سفارش‌ها و پنل مدیریت.</p><div class="meta"><span>aiogram 3 · SQLAlchemy · Redis</span><span class="tag">private</span></div></div>
+    <div class="card" style="--c:var(--lapis)"><h3>11market</h3><div class="fa">یازده‌مارکت</div>
+      <p>فروشگاه فارسی کالای دیجیتال بر پایهٔ Dujiao-Next.</p><div class="meta"><span>Go · GPLv3</span><span class="tag">private</span></div></div>
+  </div>
+
+  <h2 class="en">About the film <span>دربارهٔ این فیلم</span></h2>
+  <section class="making">
+    <ul>
+      <li><b>همه‌چیز با کد ساخته شده.</b> پنجرهٔ گره‌چینی با روش Hankin (ستاره‌های هشت‌پر روی کاشی‌کاری ۴.۸.۸) تولید شده و ۴۰۳ تکه شیشهٔ رنگی دارد.
+        <span class="en">Everything is code: the girih window is generated with Hankin's method on the 4.8.8 tiling — 403 pieces of coloured glass.</span></li>
+      <li><b>نور واقعی.</b> رندر با Blender Cycles و ردیابی مسیر نور؛ پرتوهای رنگی از عبور نور خورشید از شیشه‌ها در غبار هوای اتاق ساخته می‌شوند.
+        <span class="en">Physically based light: Blender Cycles path tracing; the coloured god-rays are sunlight passing through the glass into hazy air.</span></li>
+      <li><b>اسلوموشن واقعی، نه درون‌یابی.</b> هر تکه یک جسم صلب با سرعت و چرخش خودش است؛ ساعت فیزیک به ۱/۱۵۰ و سپس ۱/۴۰۰۰ زمان واقعی کند می‌شود و تک‌تک فریم‌ها رندر شده‌اند.
+        <span class="en">True slow motion, not frame interpolation: every piece is a rigid body; the physics clock runs at 1/150, then 1/4000 of real time, and every frame is rendered.</span></li>
+      <li><b>صدا هم با کد.</b> صداگذاری کاملاً سنتز شده؛ سنتور در دستگاه شور (با کُرن) برای هر پروژه یک نت می‌نوازد.
+        <span class="en">Synthesised sound: a Karplus-Strong santur plays one note in Dastgah-e Shur for each project.</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <a href="https://github.com/alzhmd">github.com/alzhmd</a><br>
+  <span>Sky: “Symmetrical Garden 02” HDRI by Poly Haven (CC0) · Fonts: Vazirmatn, Inter (OFL)</span>
+</footer>
+
+<script>
+const v = document.getElementById('film'), b = document.getElementById('sound');
+b.addEventListener('click', () => {
+  v.muted = false; v.loop = false; v.currentTime = 0; v.controls = true;
+  v.play(); b.classList.add('hide');
+});
+v.addEventListener('ended', () => { v.muted = true; v.loop = true; v.controls = false; v.play(); b.classList.remove('hide'); });
+</script>
+</body>
+</html>
